@@ -1,4 +1,4 @@
-package br.com.banco.entity;
+package br.com.banco.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -26,7 +26,10 @@ public class Transferencia implements Serializable{
     private String tipo;
 
     @Column(name = "nome_operador_transacao")
-    private String nomeOperacaoTransacao;
+    private String nomeOperadorTransacao;
+
+    @Column(nullable = false, name = "conta_id")
+    public Long idConta;
 
     public static final long serialVersionUID = 1L;
 }

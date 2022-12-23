@@ -1,4 +1,4 @@
-package br.com.banco.entity;
+package br.com.banco.model;
 
 import java.io.Serializable;
 import java.util.*;
@@ -20,8 +20,7 @@ public class Conta implements Serializable{
     @Column(name = "nome_responsavel")
     private String nomeResponsavel;
 
-    @OneToMany
-    @JoinColumn(name = "id")
+    @OneToMany(mappedBy = "idConta")
     private List<Transferencia> transferencias = new ArrayList<>(); 
 
     private static final long serialVersionUID = 1L;
