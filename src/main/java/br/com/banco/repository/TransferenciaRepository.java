@@ -11,9 +11,12 @@ import br.com.banco.model.TransferenciaModel;
 @Repository
 public interface TransferenciaRepository extends JpaRepository<TransferenciaModel, Long> {
     public TransferenciaModel findByIdTransferencia(Long idTransferencia);
+
     public List<TransferenciaModel> findByIdConta(Long idConta);
-    public List<TransferenciaModel> findByNomeOperadorTransacao(String NomeOperadorTransacao);
+
+    public List<TransferenciaModel> findByNomeOperadorTransacaoIgnoreCase(String NomeOperadorTransacao);
 
     public List<TransferenciaModel> findBydataTransferenciaBetween(LocalDateTime inicio, LocalDateTime termino);
-   // public List<TransferenciaModel> findByDataTransferenciaAndNomeOperadorTransacao(Date dataTransferencia, String NomeOperadorTransacao);
+
+    public List<TransferenciaModel> findBydataTransferenciaBetweenAndNomeOperadorTransacao(LocalDateTime inicio, LocalDateTime termino, String nomeOperadorTransacao);
 }

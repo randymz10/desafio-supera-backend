@@ -5,8 +5,6 @@ import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import lombok.Data;
 
 @Data
@@ -19,7 +17,6 @@ public class TransferenciaModel implements Serializable{
     @Column(nullable = false, unique = true, name = "id")
     private Long idTransferencia;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "data_transferencia")
     private LocalDateTime dataTransferencia;
 

@@ -48,7 +48,7 @@ public class TransferenciaRestController {
         }
     }
 
-    @GetMapping("/data/")
+    @GetMapping("/data")
     public ResponseEntity<List<TransferenciaModel>> getTransferenciaByPeriod(
             @RequestParam("inicio") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime inicio,
             @RequestParam("termino") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime termino) {
@@ -58,5 +58,19 @@ public class TransferenciaRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    
+
+    @GetMapping("/allFilters")
+    public ResponseEntity<List<TransferenciaModel>> getTransferenciaByAllFilters(
+            @RequestParam("dataInicio") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime dataInicio,
+            @RequestParam("dataTermino") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime dataTermino,
+            @RequestParam("nomeOperadorTransacao") String nomeOperadorTransacao) {
+        if (!transferenciaService.findByAllFilters(dataInicio, dataTermino, nomeOperadorTransacao).isEmpty()) {
+            return new ResponseEntity<>(
+                    transferenciaService.findByAllFilters(dataInicio, dataTermino, nomeOperadorTransacao),
+                    HttpStatus.FOUND);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }

@@ -30,7 +30,7 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
     @Override
     @Transactional(readOnly = true)
     public List<TransferenciaModel> findByNomeOperadorTransacao(String NomeOperadorTransacao) {
-        return transferenciaRepository.findByNomeOperadorTransacao(NomeOperadorTransacao);
+        return transferenciaRepository.findByNomeOperadorTransacaoIgnoreCase(NomeOperadorTransacao);
     }
 
     @Override
@@ -39,11 +39,10 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
         return transferenciaRepository.findBydataTransferenciaBetween(inicio, termino);
     }
 
-    // @Override
-    // @Transactional(readOnly = true)
-    // public List<TransferenciaModel> findByDataTransferenciaAndNomeOperadorTransacao(Date dataTransferencia,
-    //         String NomeOperadorTransacao) {
-    //     return transferenciaRepository.findByDataTransferenciaAndNomeOperadorTransacao(dataTransferencia, NomeOperadorTransacao);
-    // }
+    @Override
+    public List<TransferenciaModel> findByAllFilters(LocalDateTime inicio, LocalDateTime termino,
+            String NomeOperadorTransacao) {
+        return transferenciaRepository.findBydataTransferenciaBetweenAndNomeOperadorTransacao(inicio, termino, NomeOperadorTransacao);
+    }
 
 }
