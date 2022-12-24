@@ -18,16 +18,6 @@ public class TransferenciaRestController {
     @Autowired
     ITransferenciaService transferenciaService;
 
-    @PostMapping
-    public ResponseEntity<?> getContaById(@RequestParam(name = "id") Long idTransferencia) {
-        if (transferenciaService.findByIdConta(idTransferencia) != null) {
-            return new ResponseEntity<TransferenciaModel>(transferenciaService.findByIdTransferencia(idTransferencia),
-                    HttpStatus.FOUND);
-        } else {
-            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
-        }
-    }
-
     @GetMapping("/conta/{idConta}")
     public ResponseEntity<List<TransferenciaModel>> getTransferenciaByIdConta(@PathVariable Long idConta) {
         if (!transferenciaService.findByIdConta(idConta).isEmpty()) {

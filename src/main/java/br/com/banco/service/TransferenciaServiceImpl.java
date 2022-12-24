@@ -17,11 +17,6 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
     private TransferenciaRepository transferenciaRepository;
 
     @Override
-    public TransferenciaModel findByIdTransferencia(Long idTransferencia) {
-        return transferenciaRepository.findByIdTransferencia(idTransferencia);
-    }
-
-    @Override
     @Transactional(readOnly = true)
     public List<TransferenciaModel> findByIdConta(Long idConta) {
         return transferenciaRepository.findByIdConta(idConta);
