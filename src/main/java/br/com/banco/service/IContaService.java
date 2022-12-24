@@ -1,8 +1,7 @@
 package br.com.banco.service;
 
-import br.com.banco.model.Conta;
+import br.com.banco.model.ContaModel;
 
 public interface IContaService {
-    public Conta findByIdConta(Long idConta);
-    public Conta findByNomeResponsavel(String nomeResponsavel);
+    public ContaModel findByIdConta(Long idConta);
 }

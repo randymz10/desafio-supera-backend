@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "conta")
-public class Conta implements Serializable{
+public class ContaModel implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,8 @@ public class Conta implements Serializable{
     private String nomeResponsavel;
 
     @OneToMany(mappedBy = "idConta")
-    private List<Transferencia> transferencias = new ArrayList<>(); 
+    //@JoinColumn(name = "conta_id", referencedColumnName = "idConta")
+    private List<TransferenciaModel> transferencias = new ArrayList<>(); 
 
     private static final long serialVersionUID = 1L;
 }

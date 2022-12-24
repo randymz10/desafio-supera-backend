@@ -1,25 +1,27 @@
 package br.com.banco.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "transferencia")
-public class Transferencia implements Serializable{
+public class TransferenciaModel implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, unique = true, name = "id")
     private Long idTransferencia;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "data_transferencia")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataTransferencia;
+    private LocalDateTime dataTransferencia;
 
     private Double valor;
 

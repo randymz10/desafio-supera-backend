@@ -1,15 +1,19 @@
 package br.com.banco.repository;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import br.com.banco.model.Transferencia;
+import br.com.banco.model.TransferenciaModel;
 
-public interface TransferenciaRepository extends JpaRepository<Transferencia, Long> {
-    public List<Transferencia> findByIdConta(Long idConta);
-    public List<Transferencia> findByNomeOperadorTransacao(String NomeOperadorTransacao);
-    public List<Transferencia> findByDataTransferencia(Date dataTransferencia);
-    public List<Transferencia> findByDataTransferenciaAndNomeOperadorTransacao(Date dataTransferencia, String NomeOperadorTransacao);
+@Repository
+public interface TransferenciaRepository extends JpaRepository<TransferenciaModel, Long> {
+    public TransferenciaModel findByIdTransferencia(Long idTransferencia);
+    public List<TransferenciaModel> findByIdConta(Long idConta);
+    public List<TransferenciaModel> findByNomeOperadorTransacao(String NomeOperadorTransacao);
+
+    public List<TransferenciaModel> findBydataTransferenciaBetween(LocalDateTime inicio, LocalDateTime termino);
+   // public List<TransferenciaModel> findByDataTransferenciaAndNomeOperadorTransacao(Date dataTransferencia, String NomeOperadorTransacao);
 }

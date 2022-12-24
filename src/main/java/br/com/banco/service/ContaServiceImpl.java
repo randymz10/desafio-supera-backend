@@ -1,11 +1,13 @@
 package br.com.banco.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.banco.model.Conta;
+import br.com.banco.model.ContaModel;
 import br.com.banco.repository.ContaRepository;
 
+@Service
 public class ContaServiceImpl implements IContaService{
     
     @Autowired
@@ -13,14 +15,8 @@ public class ContaServiceImpl implements IContaService{
 
     @Override
     @Transactional(readOnly = true)
-    public Conta findByIdConta(Long idConta) {
+    public ContaModel findByIdConta(Long idConta) {
         return contaRepository.findByIdConta(idConta);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Conta findByNomeResponsavel(String nomeResponsavel) {
-        return contaRepository.findByNomeResponsavel(nomeResponsavel);
     }
     
 }

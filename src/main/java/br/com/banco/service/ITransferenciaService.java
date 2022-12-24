@@ -1,14 +1,15 @@
 package br.com.banco.service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
-import br.com.banco.model.Transferencia;
+import br.com.banco.model.TransferenciaModel;
 
 public interface ITransferenciaService {
-    public List<Transferencia> findByIdConta(Long idConta);
-    public List<Transferencia> findByNomeOperadorTransacao(String NomeOperadorTransacao);
-    public List<Transferencia> findByDataTransferencia(Date dataTransferencia);
-    public List<Transferencia> findByDataTransferenciaAndNomeOperadorTransacao(Date dataTransferencia, String NomeOperadorTransacao);
+    public TransferenciaModel findByIdTransferencia(Long idTransferencia);
+    public List<TransferenciaModel> findByIdConta(Long idConta);
+    public List<TransferenciaModel> findByNomeOperadorTransacao(String NomeOperadorTransacao);
+    public List<TransferenciaModel> findByPeriod(LocalDateTime inicio, LocalDateTime termino);
+   // public List<TransferenciaModel> findByDataTransferenciaAndNomeOperadorTransacao(Date dataTransferencia, String NomeOperadorTransacao);
 
 }
