@@ -47,3 +47,17 @@
 - Utilizar o padrão RESTFul para a construção da sua API.
 - Existe um script sql no pacote resources que cotém a modelagem do banco que pode ser seguida, e valores iniciais.
 - Caso julge necessário você poderá criar mais tablas, porém a estrutura inicial não deve ser alterada.
+
+## Endpoints
+
+| Metodo | Rota                                                                                                                      |  Descrição                                                                                                                                               |
+|--------|---------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GET    | /api/conta/{idConta}                                                                                                      | Detalha os detalhes de uma conta                                                                                                                         | 
+| GET    | /api/transferencia/conta/{idConta}                                                                                        | Lista as transferencias por conta                                                                                                                        |
+| GET    | /api/transferencia/operador/{nomeOperadorTransacao}                                                                       | Lista as transferencias por nome do operador                                                                                                             |
+| GET    | /api/transferencia/data/?dataInicio={yyyy-MM-dd}T00:00&dataTermino={yyyy-MM-dd}T23:59                                     | Lista as transferencias por um periodo de tempo, substituir os valores entre chaves ({}) pelas datas con formato ano-mes-dia                             |
+| GET    | /api/transferencia/allFilters//?dataInicio={yyyy-MM-dd}T00:00&dataTermino={yyyy-MM-dd}T23:59&nomeOperadorTransacao={Nome} | Lista as transferencias por um periodo de tempo e nome do operador, substituir os valores entre chaves ({}) pelas datas con formato ano-mes-dia e o nome |
+
+## Autor
+
+[@randymz10](https://github.com/randymz10)
